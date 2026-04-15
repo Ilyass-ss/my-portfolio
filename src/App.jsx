@@ -148,14 +148,14 @@ const App = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               {projects.map((project, index) => (
                 <div key={index} className="group relative aspect-[16/10] overflow-hidden rounded-[2rem] border border-white/5 bg-[#10132E]">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover grayscale opacity-40 transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0 group-hover:opacity-100" />
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover lg:grayscale lg:opacity-40 transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0 group-hover:opacity-100" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#07051F] via-[#07051F]/40 to-transparent opacity-80" />
                   
                   <div className="absolute inset-0 flex flex-col justify-end p-8 translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
                     <p className="text-[10px] font-black tracking-[0.3em] text-[#3E66ED] uppercase mb-2">{project.category}</p>
                     <h3 className="text-3xl font-bold uppercase tracking-tighter mb-6">{project.title}</h3>
                     
-                    <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                    <div className="flex gap-4 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
                       <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="bg-white text-black px-6 py-3 rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-[#3E66ED] hover:text-white transition-colors">Live Demo</a>
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md border border-white/10 px-6 py-3 rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-white/20 transition-colors">Github</a>
                     </div>
