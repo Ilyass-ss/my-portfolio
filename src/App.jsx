@@ -26,11 +26,18 @@ const App = () => {
       githubUrl: 'https://github.com/Ilyass-ss/bank-app.git'
     },
     { 
-      title: 'CYBER UI', 
-      category: 'WEB DESIGN', 
-      image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800',
-      demoUrl: '#', 
-      githubUrl: '#'
+      title: 'Weather App', 
+      category: 'Get Data', 
+      image: 'https://images.unsplash.com/photo-1429552077091-836152271555?auto=format&fit=crop&q=80&w=800',
+      demoUrl: 'https://weather-app-six-kappa-94.vercel.app/', 
+      githubUrl: 'https://github.com/Ilyass-ss/weather-app'
+    },
+    { 
+      title: 'Terminal', 
+      category: 'Backend', 
+      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800',
+      demoUrl: 'https://my-terminal-gamma.vercel.app/', 
+      githubUrl: 'https://github.com/Ilyass-ss/my-terminal'
     }
   ], [])
 
@@ -215,7 +222,7 @@ const App = () => {
   {Object.entries({
     Github: 'https://github.com/Ilyass-ss',
     LinkedIn: 'https://www.linkedin.com/in/ilyass-74846932b/',
-    WhatsApp: 'https://wa.me/212660237709' 
+    Email: 'mailto:iliyasessafi@gmail.com' 
   }).map(([name, url]) => (
     <a 
       key={name} 
