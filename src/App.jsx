@@ -1,243 +1,206 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import { useState } from "react";
 
-const App = () => {
-  const [activeTab, setActiveTab] = useState('home')
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  const skills = useMemo(() => [
-    { name: 'React', level: '90%', color: '#61DAFB' },
-    { name: 'JavaScript', level: '85%', color: '#F7DF1E' },
-    { name: 'Tailwind', level: '95%', color: '#38B2AC' },
-    { name: 'CSS', level: '92%', color: '#264DE4' },
-    { name: 'HTML', level: '98%', color: '#E34F26' },
-    { name: 'Python', level: '70%', color: '#3776AB' }
-  ], [])
-
-  const projects = useMemo(() => [
-    { 
-      title: 'BANK APP', 
-      category: 'FINTECH / FULLSTACK', 
-      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800',
-      demoUrl: 'https://bank-app-iota-azure.vercel.app/', 
-      githubUrl: 'https://github.com/Ilyass-ss/bank-app.git'
-    },
-    { 
-      title: 'Weather App', 
-      category: 'Get Data', 
-      image: 'https://images.unsplash.com/photo-1429552077091-836152271555?auto=format&fit=crop&q=80&w=800',
-      demoUrl: 'https://weather-app-six-kappa-94.vercel.app/', 
-      githubUrl: 'https://github.com/Ilyass-ss/weather-app'
-    },
-    { 
-      title: 'Terminal', 
-      category: 'Backend', 
-      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800',
-      demoUrl: 'https://my-terminal-gamma.vercel.app/', 
-      githubUrl: 'https://github.com/Ilyass-ss/my-terminal'
-    }
-  ], [])
-
-  if (!mounted) return null
+export default function Portfolio() {
+  
+  const [activeTab, setActiveTab] = useState('home');
 
   return (
-    <div className="min-h-screen bg-[#07051F] text-white p-6 md:p-12 font-sans antialiased relative overflow-hidden">
+    <>
+    
+  {activeTab === 'home' && (
+    <main className="main relative w-screen h-screen grid grid-rows-12 text-white overflow-hidden">
+
+        <div className="absolute bottom-0 z-1 w-full h-[300px]">
+        <svg className="absolute bottom-0 opacity-80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path className=" wave1" fill="#5c6269" fillOpacity="1" d="M0,160L80,186.7C160,213,320,267,480,272C640,277,800,235,960,192C1120,149,1280,107,1360,85.3L1440,64L1440,320L0,320Z"></path></svg>
+        <svg className="absolute bottom-0 opacity-60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path className=" wave2" fill="#5c6269" fillOpacity="1" d="M0,96L80,117.3C160,139,320,181,480,208C640,235,800,245,960,240C1120,235,1280,213,1360,202.7L1440,192L1440,320L0,320Z"></path></svg>
+        <svg className="absolute bottom-0 opacity-40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path className=" wave3" fill="#5c6269" fillOpacity="1" d="M0,256L60,261.3C120,267,240,277,360,261.3C480,245,600,203,720,170.7C840,139,960,117,1080,128L1440,224L1440,320L0,320Z"></path></svg>
+        <svg className="absolute bottom-0 opacity-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path className=" wave4" fill="#5c6269" fillOpacity="1" d="M0,192L48,202.7C96,213,192,235,288,229.3C384,224,480,192,576,181.3C672,171,768,181,864,202.7L1440,128L1440,320L0,320Z"></path></svg>
+        </div>
+
+
+      <nav className="relative z-10 flex justify-between items-center row-span-1 p-2 m-2">
+        <div className="myname-bg">
+          <span className="myname">ILYASS.</span>
+        </div>
+        <div>
+          <ul className="flex gap-2">
+            <li><button className="hover:text-[#1a1c1f] cursor-pointer" onClick={() => setActiveTab('home')}>Home</button></li>
+            <li><button className="hover:text-[#1a1c1f] cursor-pointer" onClick={() => setActiveTab('works')}>Works</button></li>
+          </ul>
+        </div>
+        <div>
+          <button className="hover:text-[#1a1c1f] cursor-pointer" onClick={() => setActiveTab('contact')}>Contact</button>
+        </div>
+      </nav>
+
+      <div className="relative w-screen row-span-10 flex flex-col gap-5 justify-center items-center z-2">
+
+        <span className="text-[30px] text-[#5c6269]"><span className="text-[#1a1c1f]">I</span>lyass <span className="text-[40px] text-[#1a1c1f]">P</span>ort<span className="text-[40px] text-[#1a1c1f]">f</span>olio</span>
+        <button className="group view-works min-w-[200px] min-h-[60px] bg-[#1a1c1f] text-[#5c6269] rounded-4xl cursor-pointer shadow-lg shadow-[#1a1c1f]/50 transition-all duration-1000" onClick={() => setActiveTab('works')}>
+            <span className="view-works w-[100%] h-[100%] text-[20px] text-transparent text-center content-center group-hover:scale-110 group-hover:tracking-widest group-hover:drop-shadow-[0_0_5px_#ffffff] transition-all duration-1000 inline-block">View Works</span>
+        </button>
+      </div>
+    
+      <footer className="row-span-1 flex justify-end z-2">
+        <div>
+          <ul className="flex gap-3 p-2">
+              {
+                Object.entries(
+                  {
+                    Github: 'https://github.com/Ilyass-ss',
+                    Linkedin: 'https://www.linkedin.com/in/ilyass-74846932b/',
+                  }
+                ).map(([name, url], index) => {
+                  return (
+                    <li className="hover:text-[#1a1c1f]" key={index}><a href={url} target="_blank" rel={"noopener noreferrer"}>{name}</a></li>
+                  )
+                })
+              }
+          </ul>
+        </div>
+      </footer>
+    </main>
+  )}
+
+  {activeTab === 'works' && (
+        <main className="main relative w-screen h-screen grid grid-rows-12 text-white overflow-x-hidden">
+
+        {/* <div className="absolute bottom-0 z-1 w-full h-[300px]">
+        <svg className="absolute bottom-0 opacity-80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path className=" wave1" fill="#5c6269" fill-opacity="1" d="M0,160L80,186.7C160,213,320,267,480,272C640,277,800,235,960,192C1120,149,1280,107,1360,85.3L1440,64L1440,320L0,320Z"></path></svg>
+        <svg className="absolute bottom-0 opacity-60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path className=" wave2" fill="#5c6269" fill-opacity="1" d="M0,96L80,117.3C160,139,320,181,480,208C640,235,800,245,960,240C1120,235,1280,213,1360,202.7L1440,192L1440,320L0,320Z"></path></svg>
+        <svg className="absolute bottom-0 opacity-40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path className=" wave3" fill="#5c6269" fill-opacity="1" d="M0,256L60,261.3C120,267,240,277,360,261.3C480,245,600,203,720,170.7C840,139,960,117,1080,128L1440,224L1440,320L0,320Z"></path></svg>
+        <svg className="absolute bottom-0 opacity-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path className=" wave4" fill="#5c6269" fill-opacity="1" d="M0,192L48,202.7C96,213,192,235,288,229.3C384,224,480,192,576,181.3C672,171,768,181,864,202.7L1440,128L1440,320L0,320Z"></path></svg>
+        </div> */}
+
+
+      <nav className="relative z-10 flex justify-between items-center row-span-1 p-2 m-2">
+        <div className="myname-bg">
+          <span className="myname">ILYASS.</span>
+        </div>
+        <div>
+          <ul className="flex gap-2">
+            <li><button className="hover:text-[#1a1c1f] cursor-pointer" onClick={() => setActiveTab('home')}>Home</button></li>
+            <li><button className="hover:text-[#1a1c1f] cursor-pointer" onClick={() => setActiveTab('works')}>Works</button></li>
+          </ul>
+        </div>
+        <div>
+          <button className="hover:text-[#1a1c1f] cursor-pointer" onClick={() => setActiveTab('contact')}>Contact</button>
+        </div>
+      </nav>
       
-      <style>{`
-        @keyframes slowGlow {
-          0%, 100% { opacity: 0.3; transform: translate(-5%, -5%) scale(1); }
-          50% { opacity: 0.7; transform: translate(5%, 5%) scale(1.2); }
-        }
-        @keyframes textFlow {
-          0% { background-position: 0% 50%; }
-          100% { background-position: 200% 50%; }
-        }
-        @keyframes slideUp {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes growLine {
-          from { width: 0; }
-          to { width: var(--progress); }
-        }
-        .ambient-light-1 {
-          position: fixed;
-          top: -10%;
-          left: -10%;
-          width: 70vw;
-          height: 70vw;
-          background: radial-gradient(circle, rgba(62, 102, 237, 0.25) 0%, transparent 70%);
-          filter: blur(120px);
-          animation: slowGlow 8s ease-in-out infinite;
-          pointer-events: none;
-        }
-        .ambient-light-2 {
-          position: fixed;
-          bottom: -15%;
-          right: -5%;
-          width: 60vw;
-          height: 60vw;
-          background: radial-gradient(circle, rgba(46, 75, 243, 0.2) 0%, transparent 70%);
-          filter: blur(120px);
-          animation: slowGlow 12s ease-in-out infinite reverse;
-          pointer-events: none;
-        }
-        .logo-motion {
-          background: linear-gradient(to right, #ffffff, #3E66ED, #6366f1, #ffffff);
-          background-size: 200% auto;
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-          animation: textFlow 4s linear infinite;
-        }
-      `}</style>
-
-      <div className="ambient-light-1"></div>
-      <div className="ambient-light-2"></div>
-
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col min-h-[90vh]">
-        <nav className="flex justify-between items-center mb-12 w-full">
-          <div className="text-xl font-black tracking-tighter text-left uppercase logo-motion cursor-pointer" onClick={() => setActiveTab('home')}>
-            ILYASS<span>.</span>
-          </div>
-          <div className="bg-[#10132E]/40 border border-white/5 px-6 py-2 rounded-full flex gap-8 backdrop-blur-xl">
-            <button onClick={() => setActiveTab('home')} className={`text-[9px] font-bold uppercase tracking-[0.2em] transition-colors ${activeTab === 'home' ? 'text-white' : 'text-white/30 hover:text-white'}`}>Home</button>
-            <button onClick={() => setActiveTab('skills')} className={`text-[9px] font-bold uppercase tracking-[0.2em] transition-colors ${activeTab === 'skills' ? 'text-white' : 'text-white/30 hover:text-white'}`}>Skills</button>
-            <button onClick={() => setActiveTab('works')} className={`text-[9px] font-bold uppercase tracking-[0.2em] transition-colors ${activeTab === 'works' ? 'text-white' : 'text-white/30 hover:text-white'}`}>Works</button>
-          </div>
-          <button onClick={() => setActiveTab('contact')} className={`text-[10px] font-bold uppercase tracking-[0.2em] border-b transition-all ${activeTab === 'contact' ? 'border-white text-white' : 'border-white/20 text-white/40 hover:text-white hover:border-white'}`}>Contact</button>
-        </nav>
-
-        {activeTab === 'home' && (
-          <main className="flex-grow flex flex-col justify-center items-center animate-[slideUp_0.6s_ease-out]">
-            <h1 className="text-[8vw] md:text-[6.5rem] font-[1000] tracking-[-0.05em] leading-[0.85] mb-8 text-center">
-              <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]">Ilyass</span>
-              <br />
-              <span className="bg-gradient-to-b from-[#3E66ED]/40 to-[#3E66ED]/10 bg-clip-text text-transparent">Portfolio</span>
-            </h1>
-            {/* <p className="text-white/40 max-w-lg mx-auto text-lg font-light leading-relaxed mb-16 tracking-wide text-center">
-              Digital craftsmanship through <span className="text-[#3E66ED] font-medium">Deep Blue</span> aesthetics and immersive motion.
-            </p> */}
-            <button onClick={() => setActiveTab('works')} className="group relative px-16 py-5 rounded-full border border-white/10 bg-[#10132E] transition-all duration-500 hover:bg-white hover:text-black overflow-hidden shadow-[0_0_40px_rgba(62,102,237,0.15)]">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#3E66ED]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <span className="relative z-10 text-[11px] font-black uppercase tracking-[0.6em]">View Works</span>
-            </button>
-          </main>
-        )}
-
-        {activeTab === 'skills' && (
-          <main className="flex-grow flex flex-col justify-center animate-[slideUp_0.8s_ease-out_forwards]">
-            <div className="max-w-3xl mx-auto w-full">
-              <h2 className="text-4xl font-black mb-12 tracking-tight uppercase">Tech <span className="text-[#3E66ED]">Stack</span></h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-                {skills.map((skill, index) => (
-                  <div key={index} className="group">
-                    <div className="flex justify-between items-end mb-3">
-                      <span className="text-sm font-bold uppercase tracking-widest text-white/80 group-hover:text-white">{skill.name}</span>
-                      <span className="text-xs font-medium text-white/30">{skill.level}</span>
-                    </div>
-                    <div className="h-[2px] w-full bg-white/5 relative overflow-hidden">
-                      <div className="h-full absolute left-0 top-0 animate-[growLine_1.5s_ease-out_forwards]" style={{ '--progress': skill.level, backgroundColor: skill.color, boxShadow: `0 0 15px ${skill.color}80` }}></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </main>
-        )}
-
-        {activeTab === 'works' && (
-          <main className="flex-grow py-12 animate-[slideUp_0.8s_ease-out_forwards]">
-            <h2 className="text-4xl font-black mb-12 tracking-tight uppercase">Latest <span className="text-[#3E66ED]">Works</span></h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              {projects.map((project, index) => (
-                <div key={index} className="group relative aspect-[16/10] overflow-hidden rounded-[2rem] border border-white/5 bg-[#10132E]">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover lg:grayscale lg:opacity-40 transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0 group-hover:opacity-100" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#07051F] via-[#07051F]/40 to-transparent opacity-80" />
-                  
-                  <div className="absolute inset-0 flex flex-col justify-end p-8 translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
-                    <p className="text-[10px] font-black tracking-[0.3em] text-[#3E66ED] uppercase mb-2">{project.category}</p>
-                    <h3 className="text-3xl font-bold uppercase tracking-tighter mb-6">{project.title}</h3>
-                    
-                    <div className="flex gap-4 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                      <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="bg-white text-black px-6 py-3 rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-[#3E66ED] hover:text-white transition-colors">Live Demo</a>
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md border border-white/10 px-6 py-3 rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-white/20 transition-colors">Github</a>
+      <div className="relative w-screen p-2 row-span-10 grid grid-cols-12 gap-5 z-2">
+          {
+            Object.entries({
+              WeatherApp: {
+                bg: 'https://t4.ftcdn.net/jpg/02/66/38/15/360_F_266381525_alVrbw15u5EjhIpoqqa1eI5ghSf7hpz7.jpg',
+                github: 'https://github.com/Ilyass-ss/weather-app',
+                vercel: 'https://weather-app-six-kappa-94.vercel.app/'
+              },
+              Terminal: {
+                bg: 'https://korben.info/cdn-cgi/image/width=960,height=1440,fit=scale-down,quality=90,f=avif/ghostty-terminal-natif-rapide-personnalisable/ghostty-terminal-natif-rapide-personnalisable-1.webp',
+                github: 'https://github.com/Ilyass-ss/my-terminal',
+                vercel: 'https://my-terminal-gamma.vercel.app/'
+              },
+              BankApp: {
+                bg: 'https://onemoneyway.com/wp-content/uploads/2024/11/Ist-es-sicher-Bankdaten-anzugeben-1024x576.png',
+                github: 'https://github.com/Ilyass-ss/bank-app',
+                vercel: 'https://bank-app-iota-azure.vercel.app/'
+              },
+            }).map(([name, {bg, github, vercel}], index) => {
+              return (
+                <div key={index} className="group relative h-[100%] col-span-4 bg-cover bg-center opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-1000 overflow-hidden" style={{backgroundImage: `url(${bg})`}}>
+                  <div className="absolute bottom-4 left-4 translate-y-[120%] group-hover:translate-y-0 transition-all duration-1000">
+                    <h3>{name}</h3>
+                    <div className="flex gap-2 pt-2 ">
+                      <a href={vercel} target="_blank" rel="noopener noreferrer" className="px-2 py-1 bg-[#5c6269] rounded-[5px] opacity-70 hover:opacity-100">Show</a>
+                      <a href={github} target="_blank" rel="noopener noreferrer" className="px-2 py-1 bg-[#1a1c1f] rounded-[5px] opacity-70 hover:opacity-100">Github</a>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </main>
-        )}
-
-{activeTab === 'contact' && (
-  <main className="flex-grow flex flex-col justify-center animate-[slideUp_0.8s_ease-out_forwards]">
-    <div className="max-w-xl mx-auto w-full space-y-8">
-      <h2 className="text-4xl font-black mb-8 tracking-tight text-center uppercase">Get in <span className="text-[#3E66ED]">Touch</span></h2>
-      
-      <form 
-        action="https://formspree.io/f/xpqkzper"
-        method="POST"
-        className="space-y-4"
-      >
-        <input 
-          name="name" 
-          type="text" 
-          placeholder="NAME" 
-          required 
-          className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-6 py-4 text-[10px] font-bold tracking-widest focus:outline-none focus:border-[#3E66ED] transition-colors" 
-        />
-        <input 
-          name="email"
-          type="email" 
-          placeholder="EMAIL" 
-          required 
-          className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-6 py-4 text-[10px] font-bold tracking-widest focus:outline-none focus:border-[#3E66ED] transition-colors" 
-        />
-        <textarea 
-          name="message"
-          placeholder="MESSAGE" 
-          rows="4" 
-          required 
-          className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-6 py-4 text-[10px] font-bold tracking-widest focus:outline-none focus:border-[#3E66ED] transition-colors resize-none"
-        ></textarea>
-        
-        <button 
-          type="submit" 
-          className="w-full bg-white text-black font-black py-5 rounded-xl uppercase tracking-[0.4em] text-[10px] hover:bg-[#3E66ED] hover:text-white transition-all"
-        >
-          Send Message
-        </button>
-      </form>
-    </div>
-  </main>
-)}
-        <footer className="mt-auto pb-6 w-full flex justify-between items-center opacity-20 text-[9px] tracking-[0.4em] uppercase border-t border-white/5 pt-8 font-bold">
-          <div>© 2026 ILYASS</div>
-
-<div className="flex gap-10">
-  {Object.entries({
-    Github: 'https://github.com/Ilyass-ss',
-    LinkedIn: 'https://www.linkedin.com/in/ilyass-74846932b/',
-    Email: 'mailto:iliyasessafi@gmail.com' 
-  }).map(([name, url]) => (
-    <a 
-      key={name} 
-      href={url} 
-      target="_blank" 
-      rel="noopener noreferrer" 
-      className="hover:text-white cursor-pointer transition-colors uppercase tracking-widest"
-    >
-      {name}
-    </a>
-  ))}
-</div>        </footer>
+              )
+            })
+          }
       </div>
-    </div>
+    
+      <footer className="row-span-1 flex justify-end z-2 bg-[#5c6269]">
+        <div>
+          <ul className="flex gap-3 p-2">
+              {
+                Object.entries(
+                  {
+                    Github: 'https://github.com/Ilyass-ss',
+                    Linkedin: 'https://www.linkedin.com/in/ilyass-74846932b/',
+                  }
+                ).map(([name, url], index) => {
+                  return (
+                    <li className="hover:text-[#1a1c1f]" key={index}><a href={url} target="_blank" rel={"noopener noreferrer"}>{name}</a></li>
+                  )
+                })
+              }
+          </ul>
+        </div>
+      </footer>
+    </main>
+  )}
+
+  {activeTab === 'contact' && (
+        <main className="main relative w-screen h-screen grid grid-rows-12 text-white overflow-x-hidden">
+
+        {/* <div className="absolute bottom-0 z-1 w-full h-[300px]">
+        <svg className="absolute bottom-0 opacity-80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path className=" wave1" fill="#5c6269" fill-opacity="1" d="M0,160L80,186.7C160,213,320,267,480,272C640,277,800,235,960,192C1120,149,1280,107,1360,85.3L1440,64L1440,320L0,320Z"></path></svg>
+        <svg className="absolute bottom-0 opacity-60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path className=" wave2" fill="#5c6269" fill-opacity="1" d="M0,96L80,117.3C160,139,320,181,480,208C640,235,800,245,960,240C1120,235,1280,213,1360,202.7L1440,192L1440,320L0,320Z"></path></svg>
+        <svg className="absolute bottom-0 opacity-40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path className=" wave3" fill="#5c6269" fill-opacity="1" d="M0,256L60,261.3C120,267,240,277,360,261.3C480,245,600,203,720,170.7C840,139,960,117,1080,128L1440,224L1440,320L0,320Z"></path></svg>
+        <svg className="absolute bottom-0 opacity-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path className=" wave4" fill="#5c6269" fill-opacity="1" d="M0,192L48,202.7C96,213,192,235,288,229.3C384,224,480,192,576,181.3C672,171,768,181,864,202.7L1440,128L1440,320L0,320Z"></path></svg>
+        </div> */}
+
+
+      <nav className="relative z-10 flex justify-between items-center row-span-1 p-2 m-2">
+        <div className="myname-bg">
+          <span className="myname">ILYASS.</span>
+        </div>
+        <div>
+          <ul className="flex gap-2">
+            <li><button className="hover:text-[#1a1c1f] cursor-pointer" onClick={() => setActiveTab('home')}>Home</button></li>
+            <li><button className="hover:text-[#1a1c1f] cursor-pointer" onClick={() => setActiveTab('works')}>Works</button></li>
+          </ul>
+        </div>
+        <div>
+          <button className="hover:text-[#1a1c1f] cursor-pointer" onClick={() => setActiveTab('contact')}>Contact</button>
+        </div>
+      </nav>
+      
+      <div className="relative w-screen p-2 row-span-10 flex justify-center items-center z-2">
+          <div>
+            <form action="">
+
+            </form>
+          </div>
+      </div>
+    
+      <footer className="row-span-1 flex justify-end z-2 bg-[#5c6269]">
+        <div>
+          <ul className="flex gap-3 p-2">
+              {
+                Object.entries(
+                  {
+                    Github: 'https://github.com/Ilyass-ss',
+                    Linkedin: 'https://www.linkedin.com/in/ilyass-74846932b/',
+                  }
+                ).map(([name, url], index) => {
+                  return (
+                    <li className="hover:text-[#1a1c1f]" key={index}><a href={url} target="_blank" rel={"noopener noreferrer"}>{name}</a></li>
+                  )
+                })
+              }
+          </ul>
+        </div>
+      </footer>
+    </main>
+
+  )}
+
+    
+    </>  
   )
 }
 
-export default App
