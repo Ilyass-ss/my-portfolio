@@ -37,7 +37,7 @@ export default function Portfolio() {
 
         <span className="text-[30px] text-[#5c6269]"><span className="text-[#1a1c1f]">I</span>lyass <span className="text-[40px] text-[#1a1c1f]">P</span>ort<span className="text-[40px] text-[#1a1c1f]">f</span>olio</span>
         <button className="group view-works min-w-[200px] min-h-[60px] bg-[#1a1c1f] text-[#5c6269] rounded-4xl cursor-pointer shadow-lg shadow-[#1a1c1f]/50 transition-all duration-1000" onClick={() => setActiveTab('works')}>
-            <span className="view-works w-[100%] h-[100%] text-[20px] text-transparent text-center content-center group-hover:scale-110 group-hover:tracking-widest group-hover:drop-shadow-[0_0_5px_#ffffff] transition-all duration-1000 inline-block">View Works</span>
+            <span className="view-works w-[100%] h-[100%] text-[20px] text-transparent text-center content-center min-[769px]:group-hover:scale-110 min-[769px]:group-hover:tracking-widest min-[769px]:group-hover:drop-shadow-[0_0_5px_#ffffff] transition-all duration-1000 inline-block">View Works</span>
         </button>
       </div>
     
@@ -63,7 +63,7 @@ export default function Portfolio() {
   )}
 
   {activeTab === 'works' && (
-        <main className="main relative w-screen h-screen grid grid-rows-12 text-white overflow-x-hidden">
+        <main className="main relative w-screen h-screen grid grid-rows-12 text-white overflow-hidden">
 
         {/* <div className="absolute bottom-0 z-1 w-full h-[300px]">
         <svg className="absolute bottom-0 opacity-80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path className=" wave1" fill="#5c6269" fill-opacity="1" d="M0,160L80,186.7C160,213,320,267,480,272C640,277,800,235,960,192C1120,149,1280,107,1360,85.3L1440,64L1440,320L0,320Z"></path></svg>
@@ -91,7 +91,7 @@ export default function Portfolio() {
       <div className="relative w-screen p-2 row-span-10 grid grid-cols-12 gap-5 z-2">
           {
             Object.entries({
-              WeatherApp: {
+              Weather: {
                 bg: 'https://t4.ftcdn.net/jpg/02/66/38/15/360_F_266381525_alVrbw15u5EjhIpoqqa1eI5ghSf7hpz7.jpg',
                 github: 'https://github.com/Ilyass-ss/weather-app',
                 vercel: 'https://weather-app-six-kappa-94.vercel.app/'
@@ -108,12 +108,12 @@ export default function Portfolio() {
               },
             }).map(([name, {bg, github, vercel}], index) => {
               return (
-                <div key={index} className="group relative h-[100%] col-span-4 bg-cover bg-center opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-1000 overflow-hidden" style={{backgroundImage: `url(${bg})`}}>
-                  <div className="absolute bottom-4 left-4 translate-y-[120%] group-hover:translate-y-0 transition-all duration-1000">
+                <div key={index} className="group relative h-[100%] col-span-4 bg-cover bg-center min-[768px]:opacity-50 min-[768px]:grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-1000 overflow-hidden" style={{backgroundImage: `url(${bg})`}}>
+                  <div className="absolute bottom-4 left-4 min-[768px]:translate-y-[120%] min-[768px]:group-hover:translate-y-0 transition-all duration-1000">
                     <h3>{name}</h3>
-                    <div className="flex gap-2 pt-2 ">
-                      <a href={vercel} target="_blank" rel="noopener noreferrer" className="px-2 py-1 bg-[#5c6269] rounded-[5px] opacity-70 hover:opacity-100">Show</a>
-                      <a href={github} target="_blank" rel="noopener noreferrer" className="px-2 py-1 bg-[#1a1c1f] rounded-[5px] opacity-70 hover:opacity-100">Github</a>
+                    <div className="flex max-[768px]:flex-col gap-2 pt-2 ">
+                      <a href={vercel} target="_blank" rel="noopener noreferrer" className="px-2 py-1 bg-[#5c6269] text-center rounded-[5px] min-[768px]:opacity-70 min-[768px]:hover:opacity-100">Show</a>
+                      <a href={github} target="_blank" rel="noopener noreferrer" className="px-2 py-1 bg-[#1a1c1f] text-center rounded-[5px] min-[768px]:opacity-70 min-[768px]:hover:opacity-100">Github</a>
                     </div>
                   </div>
                 </div>
@@ -144,7 +144,7 @@ export default function Portfolio() {
   )}
 
   {activeTab === 'contact' && (
-        <main className="main relative w-screen h-screen grid grid-rows-12 text-white overflow-x-hidden">
+        <main className="main relative w-screen h-screen grid grid-rows-12 text-white overflow-hidden">
 
         {/* <div className="absolute bottom-0 z-1 w-full h-[300px]">
         <svg className="absolute bottom-0 opacity-80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path className=" wave1" fill="#5c6269" fill-opacity="1" d="M0,160L80,186.7C160,213,320,267,480,272C640,277,800,235,960,192C1120,149,1280,107,1360,85.3L1440,64L1440,320L0,320Z"></path></svg>
@@ -170,11 +170,20 @@ export default function Portfolio() {
       </nav>
       
       <div className="relative w-screen p-2 row-span-10 flex justify-center items-center z-2">
-          <div>
-            <form action="">
-
-            </form>
-          </div>
+          <form action="https://formspree.io/f/xpqkzper" method="POST" className="flex flex-col gap-3 w-full md:w-1/2 max-w-screen-sm bg-[#1a1c1f] opacity-50 p-5 rounded-lg">
+            <div className="flex justify-center">
+            <h1 className="">Contact us</h1>
+            </div>
+            <div className="flex gap-2 justify-center items-center p-2">
+              <label htmlFor="email">Email</label>
+              <input type="email" id="email" name="email" className="flex-1 h-[40px] outline-none border rounded-2xl p-2 focus:border-blue-400"/>
+            </div>
+            <div className="flex gap-2 justify-center items-start p-2">
+              <label htmlFor="message">Message</label>
+              <textarea name="message" id="message" rows={5} className="flex-1 resize-none outline-none border rounded-2xl p-2 focus:border-blue-400 overflow-hidden"></textarea>
+            </div>
+            <button type="submit" className="bg-[#5c6269] py-1 rounded-sm sm:opacity-70 hover:opacity-100 cursor-pointer">Send</button>
+          </form>
       </div>
     
       <footer className="row-span-1 flex justify-end z-2 bg-[#5c6269]">

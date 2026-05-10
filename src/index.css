@@ -1,90 +1,13 @@
 @import "tailwindcss";
 
+/* Main Background */
+
 .main {
     background: radial-gradient(circle at top, #5c6269 0%, #1a1c1f 100%);
 
 }
 
-@keyframes wave1-move {
-
-    0%,
-    100% {
-        d: path('M0,160L80,186.7C160,213,320,267,480,272C640,277,800,235,960,192C1120,149,1280,107,1360,85.3L1440,64L1440,320L0,320Z')
-    }
-
-    30% {
-        d: path('M0,96L80,117.3C160,139,320,181,480,208C640,235,800,245,960,240C1120,235,1280,213,1360,202.7L1440,192L1440,320L0,320Z')
-    }
-
-    60% {
-        d: path('M0,256L60,261.3C120,267,240,277,360,261.3C480,245,600,203,720,170.7C840,139,960,117,1080,128L1440,224L1440,320L0,320Z')
-    }
-
-    90% {
-        d: path('M0,192L48,202.7C96,213,192,235,288,229.3C384,224,480,192,576,181.3C672,171,768,181,864,202.7L1440,128L1440,320L0,320Z')
-    }
-}
-
-@keyframes wave2-move {
-
-    0%,
-    100% {
-        d: path('M0,96L80,117.3C160,139,320,181,480,208C640,235,800,245,960,240C1120,235,1280,213,1360,202.7L1440,192L1440,320L0,320Z')
-    }
-
-    30% {
-        d: path('M0,256L60,261.3C120,267,240,277,360,261.3C480,245,600,203,720,170.7C840,139,960,117,1080,128L1440,224L1440,320L0,320Z')
-    }
-
-    60% {
-        d: path('M0,192L48,202.7C96,213,192,235,288,229.3C384,224,480,192,576,181.3C672,171,768,181,864,202.7L1440,128L1440,320L0,320Z')
-    }
-
-    90% {
-        d: path('M0,160L80,186.7C160,213,320,267,480,272C640,277,800,235,960,192C1120,149,1280,107,1360,85.3L1440,64L1440,320L0,320Z')
-    }
-}
-
-@keyframes wave3-move {
-
-    0%,
-    100% {
-        d: path('M0,256L60,261.3C120,267,240,277,360,261.3C480,245,600,203,720,170.7C840,139,960,117,1080,128L1440,224L1440,320L0,320Z')
-    }
-
-    30% {
-        d: path('M0,192L48,202.7C96,213,192,235,288,229.3C384,224,480,192,576,181.3C672,171,768,181,864,202.7L1440,128L1440,320L0,320Z')
-    }
-
-    60% {
-        d: path('M0,160L80,186.7C160,213,320,267,480,272C640,277,800,235,960,192C1120,149,1280,107,1360,85.3L1440,64L1440,320L0,320Z')
-    }
-
-    90% {
-        d: path('M0,96L80,117.3C160,139,320,181,480,208C640,235,800,245,960,240C1120,235,1280,213,1360,202.7L1440,192L1440,320L0,320Z')
-    }
-}
-
-@keyframes wave4-move {
-
-    0%,
-    100% {
-        d: path('M0,192L48,202.7C96,213,192,235,288,229.3C384,224,480,192,576,181.3C672,171,768,181,864,202.7L1440,128L1440,320L0,320Z')
-    }
-
-    20% {
-        d: path('M0,160L80,186.7C160,213,320,267,480,272C640,277,800,235,960,192C1120,149,1280,107,1360,85.3L1440,64L1440,320L0,320Z')
-    }
-
-    50% {
-        d: path('M0,96L80,117.3C160,139,320,181,480,208C640,235,800,245,960,240C1120,235,1280,213,1360,202.7L1440,192L1440,320L0,320Z')
-    }
-
-    80% {
-        d: path('M0,256L60,261.3C120,267,240,277,360,261.3C480,245,600,203,720,170.7C840,139,960,117,1080,128L1440,224L1440,320L0,320Z')
-    }
-}
-
+/* Waves Animation */
 
 .wave1 {
     animation: wave1-move 16s linear infinite;
@@ -102,23 +25,12 @@
     animation: wave4-move 10s 2s linear infinite;
 }
 
-/* My Name Effect */
-
-@keyframes bg-move {
-
-    from {
-        background-position: 200% 0;
-    }
-
-    to {
-        background-position: 0 0;
-    }
-}
+/* My Name Attributes */
 
 .myname-bg {
     background: linear-gradient(to right, #71777e 0%, #1a1c1f 20%, #1a1c1f 80%, #71777e 100%);
     background-size: 200% 100%;
-    animation: bg-move 5s linear infinite;
+    animation: myname-bg-move 5s linear infinite;
     -webkit-background-clip: text;
     background-clip: text;
 
@@ -136,8 +48,10 @@ button.view-works {
     background-position: 0 0;
 }
 
-button.view-works:hover {
-    background-position: 0 100%;
+@media (min-width: 769px) {
+    button.view-works:hover {
+        background-position: 0 100%;
+    }
 }
 
 span.view-works {
@@ -148,6 +62,18 @@ span.view-works {
     background-clip: text;
 }
 
-span.view-works:hover {
-    background-position: 0 100%;
+@media (min-width: 769px) {
+    span.view-works:hover {
+        background-position: 0 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    button.view-works {
+        animation: view-works-bg-move 1s linear infinite alternate;
+    }
+
+    span.view-works {
+        animation: view-works-bg-move 1s linear infinite alternate;
+    }
 }
