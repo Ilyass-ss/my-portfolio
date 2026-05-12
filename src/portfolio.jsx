@@ -10,13 +10,25 @@ export default function Portfolio() {
   {activeTab === 'home' && (
     <main className="main relative w-screen h-screen grid grid-rows-12 text-white overflow-hidden">
 
-        <div className="absolute bottom-0 z-1 w-full h-[300px]">
+        {/* <div className="absolute bottom-0 z-1 w-full h-[300px]">
         <svg className="absolute bottom-0 opacity-80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path className=" wave1" fill="#5c6269" fillOpacity="1" d="M0,160L80,186.7C160,213,320,267,480,272C640,277,800,235,960,192C1120,149,1280,107,1360,85.3L1440,64L1440,320L0,320Z"></path></svg>
         <svg className="absolute bottom-0 opacity-60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path className=" wave2" fill="#5c6269" fillOpacity="1" d="M0,96L80,117.3C160,139,320,181,480,208C640,235,800,245,960,240C1120,235,1280,213,1360,202.7L1440,192L1440,320L0,320Z"></path></svg>
         <svg className="absolute bottom-0 opacity-40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path className=" wave3" fill="#5c6269" fillOpacity="1" d="M0,256L60,261.3C120,267,240,277,360,261.3C480,245,600,203,720,170.7C840,139,960,117,1080,128L1440,224L1440,320L0,320Z"></path></svg>
         <svg className="absolute bottom-0 opacity-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path className=" wave4" fill="#5c6269" fillOpacity="1" d="M0,192L48,202.7C96,213,192,235,288,229.3C384,224,480,192,576,181.3C672,171,768,181,864,202.7L1440,128L1440,320L0,320Z"></path></svg>
-        </div>
+        </div> */}
 
+
+<svg className="waves absolute bottom-0 z-1 w-[200%] h-[15vh] min-h-[100px] max-h-[150px]" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
+    <defs>
+      <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+    </defs>
+    <g className="parallax">
+      <use xlinkHref="#gentle-wave" x="48" y="0" fill="#5c626980"></use>
+      <use xlinkHref="#gentle-wave" x="48" y="3" fill="#5c626960"></use>
+      <use xlinkHref="#gentle-wave" x="48" y="5" fill="#5c626940"></use>
+      <use xlinkHref="#gentle-wave" x="48" y="7" fill="#5c626920"></use>
+    </g>
+  </svg>
 
       <nav className="relative z-10 flex justify-between items-center row-span-1 p-2 m-2">
         <div className="myname-bg">
